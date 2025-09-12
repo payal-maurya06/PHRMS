@@ -1,4 +1,4 @@
-const Joi =  require('joi');
+const Joi = require('joi');
 
 const signupValidation = (req, res, next) => {
     const baseschema = {
@@ -50,7 +50,7 @@ const signupValidation = (req, res, next) => {
     const { error } = schema.validate(req.body);
     if (error) {
         return res.status(400)
-            .json({ message: 'Bad request', error })
+            .json({ message: error.details[0].message })
     }
     next();
 };

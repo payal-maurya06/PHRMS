@@ -41,6 +41,7 @@ const UserSchema = new Schema ( {
   },
   medicalHistory: {
     type: String,
+    
     required: function () {
       return this.role === "patient";
     },
@@ -93,15 +94,14 @@ const UserSchema = new Schema ( {
       return this.role === "admin" && this.roleType === "departmentAdmin";
     },
   },
-  departmentCode: {
-    type: String,
-  },
+
   verificationCode: {
     type: String,
     required: function () {
       return this.role === "admin";
     },
   },
-});
+}, {timestamps:true }
+);
 const UserModel = mongoose.model ('users', UserSchema);
 module.exports = UserModel;

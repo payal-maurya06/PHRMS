@@ -1,14 +1,14 @@
-import  { useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import { handleError, handleSuccess } from "../utils";
-
+import "./auth.css";
 
 function Login() {
 
     const [loginInfo, setLoginInfo] = useState(
         {
-          
+
             email: '',
             password: ''
 
@@ -29,8 +29,9 @@ function Login() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const {  email, password } = loginInfo;
-        if ( !email || !password) {
+        const { email, password } = loginInfo;
+       
+        if (!email || !password) {
             return handleError('email and password are required ')
         }
         try {
@@ -42,22 +43,36 @@ function Login() {
                 },
                 body: JSON.stringify(loginInfo)
             });
+          
+
             const result = await response.json();
-            const { success, message,jwtToken, name, error } = result;
+
+            
+
+            const { success, message, jwtToken, name,  role, firstLogin } = result;
             if (success) {
                 handleSuccess(message);
-                localStorage.setItem ('token', jwtToken);
-                localStorage.setItem('loggedInUser', name);
-                setTimeout(() => {
-                    navigate('/home')
+                localStorage.setItem("token", jwtToken);
+                localStorage.setItem("loggedInUser", name);
+                localStorage.setItem("role", role);
+                localStorage.setItem("firstLogin", firstLogin);
 
-                }, 1000)
-            } else if (error) {
-                const details = error?.details[0].message;
-                handleError(details);
-            } else if (!success) {
-                handleError(message);
+                setTimeout(() => {
+                    if (role === "patient") {
+                        navigate("/patientDashboard");
+                    } else if (role === "doctor") {
+                        navigate("/doctorDashboard");
+                    } else if (role === "admin") {
+                        navigate("/adminDashboard");
+                    } else {
+                        navigate("/home");
+                    }
+                }, 1000);
+
+            } else {
+                handleError(message || "Login failed");
             }
+
             console.log(result);
         } catch (err) {
             handleError(err);
@@ -69,7 +84,7 @@ function Login() {
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
 
-               
+
                 <div>
                     <label htmlFor='email'>Email</label>
                     <input

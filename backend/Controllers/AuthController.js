@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const UserModel = require("../Models/User");
+const UserModel = require("../models/User");
 const jwt = require("jsonwebtoken");
 
 const signup = async (req, res) => {
@@ -24,7 +24,8 @@ const signup = async (req, res) => {
             hospitalCode,
             roleType,
             departmentName,
-            departmentCode,
+           departmentCode,
+
             verificationCode
         } = req.body;
 
@@ -44,7 +45,8 @@ const signup = async (req, res) => {
             email,
             password,
             contactNo,
-            role
+            role,
+            hasLoggedInBefore :false
         };
 
         // Add fields based on role
@@ -114,12 +116,20 @@ const login = async (req, res) => {
             { expiresIn: "24h" }
         );
 
+          let firstLogin = false;
+        if (!user.hasLoggedInBefore) {
+            firstLogin = true;
+            user.hasLoggedInBefore = true; // update after first login
+            await user.save();
+        }
         res.status(200).json({
             message: 'Login successfully',
             success: true,
             jwtToken,
             email,
-            name: user.name
+            name: user.name,
+            role: user.role,
+            firstLogin
         });
     } catch (err) {
         console.error('Login error:', err);

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import { handleError, handleSuccess } from "../utils";
-
+import "./auth.css"; 
 
 function Signup() {
 
@@ -22,11 +22,11 @@ function Signup() {
             //Doctor-specific fields
             specialization: '',
             licenseNumber: '',
-            yearsofexp: '',
+            yearsOfExp: '',
 
             //Admin-specific fiels
-            hospitalname: '',
-            hospitalcode: '',
+            hospitalName: '',
+            hospitalCode: '',
             roleType: '',
             departmentName: '',
             departmentCode: '',

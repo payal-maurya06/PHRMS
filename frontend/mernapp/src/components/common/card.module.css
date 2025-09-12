@@ -1,0 +1,87 @@
+.first-login-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.greeting {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.subtext {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+
+/* Common Card Style */
+.first-card {
+  flex: 1 1 260px;
+  border-radius: 14px;
+  padding: 20px;
+  color: #2c3e50;
+  text-align: left;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+}
+
+.first-card:hover {
+  transform: translateY(-4px);
+}
+
+.first-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.first-card p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* Light Colors for Each Card */
+.profile-card {
+  background: #e3f2fd; /* light blue */
+}
+
+.appointment-card {
+  background: #e8f5e9; /* light green */
+}
+
+.reports-card {
+  background: #fff3e0; /* light orange */
+}
+
+/* Button Style */
+.card-btn {
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-btn:hover {
+  background: #f1f1f1;
+}
+
+.btn-icon {
+  margin-right: 8px;
+  font-size: 16px;
+}
