@@ -4,7 +4,7 @@ const signupValidation = (req, res, next) => {
     const baseschema = {
         name: Joi.string().min(3).max(100).required(),
         email: Joi.string().email().required(),
-        password: Joi.string().min(4).max(100).required(),
+        password: Joi.string().alphanum().min(6).max(100).required(),
         contactNo: Joi.string().pattern(/^[0-9]{10}$/).required(),
         role: Joi.string().valid('patient', 'doctor', 'admin').required()
     };

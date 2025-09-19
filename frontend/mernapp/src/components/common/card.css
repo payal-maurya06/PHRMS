@@ -28,11 +28,11 @@
 /* Common Card Style */
 .first-card {
   flex: 1 1 260px;
-  border-radius: 14px;
-  padding: 20px;
+  border-radius: 16px; /* Rounded corners */
+  padding: 25px;
   color: #2c3e50;
   text-align: left;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -41,13 +41,13 @@
 }
 
 .first-card h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 20px; /* Bigger title */
+  margin-bottom: 12px;
 }
 
 .first-card p {
-  font-size: 14px;
-  margin-bottom: 15px;
+  font-size: 15px; /* Bigger description */
+  margin-bottom: 18px;
 }
 
 /* Light Colors for Each Card */
@@ -65,23 +65,48 @@
 
 /* Button Style */
 .card-btn {
-  background: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 10px 16px;
-  font-size: 14px;
+  padding: 12px;
+  background: #1e3a8a;  /* Dark blue */
+  color: white;
   font-weight: 500;
-  display: flex;
-  align-items: center;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-size: 14px;
+  display: inline-block;
+  transition: background 0.3s ease;
 }
 
 .card-btn:hover {
-  background: #f1f1f1;
+  background: #334bba;  /* Lighter blue on hover */
 }
+
 
 .btn-icon {
   margin-right: 8px;
   font-size: 16px;
+}
+
+/* ✅ Extra general card class for patientDashboard cards */
+.card {
+  border-radius: 16px;   /* Rounded corners */
+  padding: 25px;
+  color: #2c3e50;
+  text-align: left;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.card-description {
+  font-size: 15px;
+  margin-bottom: 18px;
 }

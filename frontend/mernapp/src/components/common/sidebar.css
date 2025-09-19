@@ -19,6 +19,7 @@
 .sidebar-menu {
   list-style: none;
   padding: 0;
+
 }
 
 .sidebar-menu li {
@@ -30,6 +31,16 @@
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+
+.sidebar-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;   /* remove underline */
+  color: white;            /* make links same color as sidebar text */
+  width: 100%;
 }
 
 .sidebar-menu li svg {

@@ -53,7 +53,7 @@ function Login() {
             if (success) {
                 handleSuccess(message);
                 localStorage.setItem("token", jwtToken);
-                localStorage.setItem("loggedInUser", name);
+                localStorage.setItem("username", name);
                 localStorage.setItem("role", role);
                 localStorage.setItem("firstLogin", firstLogin);
 
